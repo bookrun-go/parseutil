@@ -95,8 +95,8 @@ type iParse interface {
 	parse(char int32, tc *tree.TreeCursor) (bool, error)
 }
 
-var IParseFactory iParseFactory
+var NewParseFactory func() iParseFactory
 
 func init() {
-	IParseFactory = newParseGoFileFactory()
+	NewParseFactory = newParseGoFileFactory
 }
